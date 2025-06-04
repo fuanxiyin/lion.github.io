@@ -163,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   rails
+  rexml
 
 BUNDLED WITH
   2.3.25
