@@ -35,10 +35,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install system dependencies for Nokogiri (Important!)
         run: |
-            bundle update mimemagic
-            bundle install --full-index
             gem install bundler
             bundle config set path 'vendor/bundle'
+            bundle update mimemagic
+            bundle install --full-index
             bundle install --jobs 4
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
