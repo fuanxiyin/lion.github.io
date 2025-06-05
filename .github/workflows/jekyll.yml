@@ -40,7 +40,7 @@ jobs:
           ruby-version: '2.7.5' # Not needed with a .ruby-version file
           bundler: default  # 自动安装 Bundler
           # bundler-cache: false # runs 'bundle install' and caches installed gems automatically 
-     - name: Install system dependencies for Nokogiri (Important!)
+      - name: Install system dependencies for Nokogiri (Important!)
         run: |           
             bundle update mimemagic
             bundle install --full-index
