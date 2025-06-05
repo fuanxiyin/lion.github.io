@@ -33,19 +33,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install system dependencies for Nokogiri (Important!)
-        run: |
-            gem install bundler
-            bundle config set path 'vendor/bundle'
-            bundle update mimemagic
-            bundle install --full-index
-            bundle install --jobs 4
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
         with:
           ruby-version: '2.7.5' # Not needed with a .ruby-version file
+          bundler: default  # 自动安装 Bundler
           # bundler-cache: false # runs 'bundle install' and caches installed gems automatically 
+     - name: Install system dependencies for Nokogiri (Important!)
+        run: |           
+            bundle update mimemagic
+            bundle install --full-index
+            bundle install --jobs 4
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
