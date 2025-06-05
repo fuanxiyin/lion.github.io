@@ -38,6 +38,11 @@ jobs:
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
         with:
           ruby-version: '2.7.5' # Not needed with a .ruby-version file
+          run: |
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends build-essential libxml2-dev libxslt1-dev
+            bundle update mimemagic
+            bundle install --full-index
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Install system dependencies for Nokogiri (Important!)
         run: |
